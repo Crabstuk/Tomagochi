@@ -1,7 +1,6 @@
-
 let hunger = localStorage.getItem("hunger") == undefined? 5 : localStorage.getItem("hunger")
  let thirst = parseInt(localStorage.getItem("thirst"))||5
-let fun = parseInt(localStorage.getItem("fun"))||5
+let fun = parseInt(localStorage.getItem("fun"))||5;console.log(fun);
  var emotion = null
  var pongTime = 0
  const nameLol = localStorage.getItem("tamagotchiName")? localStorage.getItem("tamagotchiName"): "tamagotchi" 
@@ -10,6 +9,7 @@ let fun = parseInt(localStorage.getItem("fun"))||5
 const pong = document.querySelector("#pong")
 let lastGotFood = localStorage.getItem("lastGotFood")|| new Date().toISOString()
 let lastGotWater = localStorage.getItem("lastGotWater")|| new Date().toISOString()
+let lastGotFun = localStorage.getItem("lastGotFun")|| new Date().toISOString()
 const feedTamagotchiBtn = document.querySelector("#feedTamagotchiBtn")
 const hungerDisplay = document.getElementById("hungerDisplay")
 const giveTamagotchiWaterBtn = document.getElementById("giveTamagotchiWaterBtn")
@@ -31,8 +31,8 @@ const addFun = () => {
         return;
     }
     localStorage.setItem("fun",fun)
-     // localStorage.setItem("lastGotWater", new Date().toISOString())
-    funDisplay.innerText = `${thirst}/10`
+      localStorage.setItem("lastGotFun", new Date().toISOString())
+    funDisplay.innerText = `${fun}/10`
     console.log("im drinking watah")
     ChangeDisplay()
 }
@@ -42,9 +42,9 @@ setInterval(() => {
         console.log(pongTime)
     }else if(pong.style.display != "block"){
         return;
-    }else if(pong.style.display == "block" && pongTime >= 20){
+    }else if(pong.style.display == "block" && pongTime >= 21){
         addFun()
-        pongTime = 0
+        pongTime = 1
     }
     
 }, 1000);
@@ -138,7 +138,6 @@ const CheckHunger = () => {
     hungerDisplay.innerText = `${hunger}/10`
     ChangeDisplay()
 }
-CheckHunger()
 
 const CheckThirst = () => {
     let TodaysDate2 = new Date().setHours(0,0,0,0)
@@ -150,16 +149,45 @@ const CheckThirst = () => {
     }else if(dateDifference2 > thirst){
         thirst = thirst - dateDifference2
     }
+    if (thirst > 10){
+        thirst = 10
+        localStorage.setItem("thirst",10)
+    }
     thirst = Math.floor(thirst)
     thirst = thirst < 0? 0:thirst
     thirstDisplay.innerText = `${thirst}/10`
     ChangeDisplay()
 }
-CheckThirst()
 
-const CheckFun = () =>{
-    let TodaysDate3
+const CheckFun = () => {
+     let TodaysDate3 = new Date().setHours(0,0,0,0)
+    let lastGotFun2 = new Date(lastGotFun).setHours(0,0,0,0)
+    let dateDifference3 = (TodaysDate3 - lastGotFun2) / (1000 * 60 * 60 * 24)
+    console.log(dateDifference3)
+    if (dateDifference3 > 0){
+    fun = fun - dateDifference3
+    }else if(dateDifference3 > fun){
+        fun = fun - dateDifference3
+    }
+
+    if(fun > 10){
+        fun = 10
+        localStorage.setItem("fun", 10)
+        console.log("jsajasjjasjasjasjasjas")
+    }
+    console.log(fun)
+    fun = Math.floor(fun)
+    fun = fun < 0? 0:fun
+    funDisplay.innerText = `${fun}/10`
+    ChangeDisplay()
 }
+CheckFun()
+const checkAllThree = () => {
+    CheckFun()
+    CheckHunger()
+    CheckThirst()
+}
+checkAllThree()
 
 let Test = "trararara"
 
@@ -180,5 +208,3 @@ console.log(emotion)
 5: Zły ( oba poniżej 3)
 6: Bez różnicy (oba powyżej 3 lecz poniżej 5)
 */
-
-

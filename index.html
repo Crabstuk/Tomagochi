@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+    canvas{
+        display: none;
+        margin: 0 auto;
+        background: #111;
+      }
+      </style>
+    <h1>Tamagotchi</h1>
+    <label for="name" id="labelForName">Nazwij Tamagotchi</label>
+    <input id="name" type="text" placeholder="Nazwij Tamagotchi">
+    <button id="saveNameButton" onclick="saveName()">Zapisz imię</button>
+    <p id="displayName"></p>
+    <img id="tamagotchiDisplay" alt="kot haha" src="Obrazy/idk.png">
+    <p>Głód: <span id="hungerDisplay"></span>   <span><button id="FeedTamagotchiBtn" onclick="feedTamagotchi()">Nakarm</button></span></p>
+    <p>Pragnienie: <span id="thirstDisplay"></span> <span><button id="giveTamagotchiWaterBtn" onclick="giveTamagotchiWater()">Daj wodę</button> </span></p>
+    <p>Szczęście: <span id="funDisplay"> </span><span> <button id="play" >Pobaw się z </button> </span></p>
+    <canvas id="pong" width="800" height="500"></canvas>
+    <script  src="script.js"></script>
+    <script src="pong.js"></script>
+</body>
+</html>

@@ -20,7 +20,12 @@ thirstDisplay.innerText = `${thirst}/10`
 const funDisplay = document.querySelector("#funDisplay")
 funDisplay.innerText = `${fun}/10`
 const showMinigame = () => {
-    pong.style.display = "block"
+    if(pong.style.display == "block"){
+        pong.style.display = "none"
+    }else{
+        pong.style.display = "block"
+    }
+    console.log(pong.style.display);
     resetBall()
 }
 const addFun = () => {

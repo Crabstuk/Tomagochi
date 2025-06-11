@@ -51,10 +51,15 @@ function update() {
   // AI paddle movement
   ai.y += ((ball.y - (ai.y + ai.height / 2))) * 0.09;
 
-  if (ball.y + ball.radius > canvas.height || ball.y - ball.radius < 0) {
+ if (ball.y + ball.radius > canvas.height || ball.y - ball.radius < 0) {
     ball.velocityY = -ball.velocityY;
   }
+   if (ball.x + ball.radius > canvas.width || ball.x - ball.radius < 0) {
+    resetBall();
+    
+  }
 
+ 
   let playerOrAI = (ball.x < canvas.width / 2) ? player : ai;
 
   if (collision(ball, playerOrAI)) {
@@ -70,14 +75,12 @@ function update() {
   
   if(document.querySelector("#pong").style.display == "block"){
   // Player lost
-  if (ball.x - ball.radius < 0 ) {
+  if (ball.x - ball.radius < 0) {
     resetBall();
-    console.log("Aww dang It")
   }
   // Player won
   if(ball.x + ball.radius > canvas.width){
     resetBall();
-    console.log(" I CANT STOP WINNING")
   }
 }
 

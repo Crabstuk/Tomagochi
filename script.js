@@ -1,6 +1,6 @@
 let hunger = localStorage.getItem("hunger") == undefined? 5 : localStorage.getItem("hunger")
  let thirst = parseInt(localStorage.getItem("thirst"))||5
-let fun = parseInt(localStorage.getItem("fun"))||5;console.log(fun);
+export let fun = parseInt(localStorage.getItem("fun"))||5;console.log(fun);
  var emotion = null
  var pongTime = 0
  const nameLol = localStorage.getItem("tamagotchiName")? localStorage.getItem("tamagotchiName"): "tamagotchi" 
@@ -25,10 +25,8 @@ const showMinigame = () => {
     }else{
         pong.style.display = "block"
     }
-    console.log(pong.style.display);
-    resetBall()
 }
-const addFun = () => {
+export const addFun = () => {
     fun++
     if(fun >= 10){
         fun = 10
@@ -38,7 +36,6 @@ const addFun = () => {
     localStorage.setItem("fun",fun)
       localStorage.setItem("lastGotFun", new Date().toISOString())
     funDisplay.innerText = `${fun}/10`
-    console.log("im drinking watah")
     ChangeDisplay()
 }
 setInterval(() => {

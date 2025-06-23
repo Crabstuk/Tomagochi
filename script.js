@@ -3,9 +3,8 @@ let hunger = localStorage.getItem("hunger") == undefined? 5 : localStorage.getIt
  let fun = parseInt(localStorage.getItem("fun"))||5;console.log(fun);
  var emotion = null
  var pongTime = 0
- const tamagotchiName = localStorage.getItem("tamagotchiName")? localStorage.getItem("tamagotchiName"): "tamagotchi" 
+let tamagotchiName = localStorage.getItem("tamagotchiName")? localStorage.getItem("tamagotchiName"): null  
  const PlayButton = document.querySelector("#play")
- PlayButton.innerText = `Pobaw się z  ${tamagotchiName}!`
 const pong = document.querySelector("#pong")
 let lastGotFood = localStorage.getItem("lastGotFood")|| new Date().toISOString()
 let lastGotWater = localStorage.getItem("lastGotWater")|| new Date().toISOString()
@@ -15,15 +14,20 @@ const hungerDisplay = document.getElementById("hungerDisplay")
 const giveTamagotchiWaterBtn = document.getElementById("giveTamagotchiWaterBtn")
 const thirstDisplay = document.getElementById("thirstDisplay")
 const tamagotchiDisplay = document.querySelector("#tamagotchiDisplay")
+const theWholeThing = document.querySelector("#theWholeThing")
 hungerDisplay.innerText = `${hunger}/10`
 thirstDisplay.innerText = `${thirst}/10`
 const funDisplay = document.querySelector("#funDisplay")
 const NamingThing = document.querySelector("#NamingThing")
 funDisplay.innerText = `${fun}/10`
-if (tamagotchiName){
+const hideNaming = () => {
+  if (tamagotchiName){
     NamingThing.style.display = "none";
+    theWholeThing.style.justifyContent = "space-between"
 
-} 
+  } 
+}
+hideNaming()
 const showMinigame = () => {
     if(pong.style.display == "block"){
         pong.style.display = "none"
@@ -120,10 +124,12 @@ const feedTamagotchi = () => {
 }
 
 const saveName = () => {
-    tamagotchiName = document.getElementById("name").value
     if (tamagotchiName == ""){
         document.getElementById("displayName").innerText = "Proszę wpisać jakieś imię!"
         return;
+    }else{
+      tamagotchiName = document.getElementById("name").value
+      hideNaming()
     }
     localStorage.setItem("tamagotchiName",tamagotchiName)
     document.getElementById("displayName").innerText = tamagotchiName

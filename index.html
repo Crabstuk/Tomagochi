@@ -8,9 +8,11 @@
 </head>
 <body>
       <div id="theWholeThing">
-    <label for="name" id="labelForName">Nazwij Tamagotchi</label>
-    <input id="name" type="text" placeholder="Nazwij Tamagotchi">
-    <button id="saveNameButton" onclick="saveName()">Zapisz imię</button>
+        <div id="NamingThing">
+            <label for="name" id="labelForName">Nazwij Tamagotchi</label>
+            <input id="name" type="text" placeholder="Nazwij Tamagotchi">
+            <button id="saveNameButton" onclick="saveName()">Zapisz imię</button>
+        </div>
     <div id="screen">
     <p id="displayName"></p>
     <img id="tamagotchiDisplay" alt="kot haha" src="Obrazy/idk.png">
@@ -26,7 +28,6 @@
      </span> <span><button id="giveTamagotchiWaterBtn" onclick="giveTamagotchiWater()">Daj wodę</button> </span></p>
      </span><span> <button id="play" >Pobaw się z </button> </span></p>
     </div>
-    <script type="module" src="script.js"></script>
-    <script type="module" src="pong.js"></script>
+    <script  src="script.js"></script>
 </body>
 </html>

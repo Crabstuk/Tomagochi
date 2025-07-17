@@ -16,7 +16,9 @@ body{
     align-items: center;
     overflow: hidden;
 }
-
+#displayName{
+    margin: 0%;
+}
 #theWholeThing{
     border-radius: 10px;
     border: 5px solid white;
@@ -32,7 +34,7 @@ body{
 #screen{
     height: 50%;
     width: 100%;
-    background-color: greenyellow;
+    background-color: black;
     border: 5px solid black ;
     border-radius: 10px;
     position: relative;
@@ -42,4 +44,8 @@ body{
     display: flex;
     align-items: center;
     justify-content: right;
+}
+#screenContent{
+    background-color: greenyellow;
+    height: 100%;
 }

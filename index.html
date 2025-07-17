@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="style.css">
+     <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -13,14 +17,17 @@
             <input id="name" type="text" placeholder="Nazwij Tamagotchi">
             <button id="saveNameButton" onclick="saveName()">Zapisz imię</button>
         </div>
-    <div id="screen">
+    <div id="screen" >
+            <div id="screenContent" class="animate__animated animate__delay-5s animate__flash ">
         <p id="displayName"></p>
         <img id="tamagotchiDisplay" alt="kot haha" src="Obrazy/idk.png">
         <canvas id="pong" width="500" height="650"></canvas>
         <div id="TamagotchisVariables">
             <p>Głód: <span id="hungerDisplay"></span> 
             <p>Szczęście: <span id="funDisplay"></span>
-            <p>Pragnienie: <span id="thirstDisplay"></span>       
+            <p>Pragnienie: <span id="thirstDisplay"></span>    
+              
+        </div>
         </div>
     </div>
     <div id="controler">

@@ -6,6 +6,7 @@ let hunger = localStorage.getItem("hunger") == undefined? 5 : localStorage.getIt
 let tamagotchiName = localStorage.getItem("tamagotchiName")? localStorage.getItem("tamagotchiName"): null  
  const PlayButton = document.querySelector("#play")
 const pong = document.querySelector("#pong")
+const screenContent = document.getElementById("screenContent");
 let lastGotFood = localStorage.getItem("lastGotFood")|| new Date().toISOString()
 let lastGotWater = localStorage.getItem("lastGotWater")|| new Date().toISOString()
 let lastGotFun = localStorage.getItem("lastGotFun")|| new Date().toISOString()
@@ -15,11 +16,30 @@ const giveTamagotchiWaterBtn = document.getElementById("giveTamagotchiWaterBtn")
 const thirstDisplay = document.getElementById("thirstDisplay")
 const tamagotchiDisplay = document.querySelector("#tamagotchiDisplay")
 const theWholeThing = document.querySelector("#theWholeThing")
+var isScreenOn = false
 hungerDisplay.innerText = `${hunger}/10`
 thirstDisplay.innerText = `${thirst}/10`
 const funDisplay = document.querySelector("#funDisplay")
 const NamingThing = document.querySelector("#NamingThing")
 funDisplay.innerText = `${fun}/10`
+const ChangeScreenStatus = () => {
+  console.log("aaa")
+  if(isScreenOn === false){
+    isScreenOn = true;
+    screenContent.classList.add("animate__flash");
+    setTimeout(() => {
+      screenContent.style.backgroundColor = "greenyellow";
+      screenContent.classList.remove("animate__flash");
+    }, 775)
+  }else{
+    isScreenOn = false
+    screenContent.classList.add("animate__fadeOut");
+        setTimeout(() => {
+      screenContent.style.backgroundColor = "black";
+      screenContent.classList.remove("animate__fadeOut");
+    }, 350)
+  }
+}
 const hideNaming = () => {
   if (tamagotchiName){
     NamingThing.style.display = "none";

@@ -18,7 +18,8 @@
             <button id="saveNameButton" onclick="saveName()">Zapisz imię</button>
         </div>
     <div id="screen" >
-            <div id="screenContent" class="animate__animated animate__delay-5s animate__flash ">
+            <div id="screenContent" class="animate__animated">
+                <div>
         <p id="displayName"></p>
         <img id="tamagotchiDisplay" alt="kot haha" src="Obrazy/idk.png">
         <canvas id="pong" width="500" height="650"></canvas>
@@ -29,7 +30,11 @@
               
         </div>
         </div>
-    </div>
+        </div>
+        <div id="buttonContainer">
+            <div id="OnAndOffButton" onclick="ChangeScreenStatus()"></div>
+        </div>
+    </d,iv>
     <div id="controler">
      <span><button id="FeedTamagotchiBtn" onclick="feedTamagotchi()">Nakarm</button></span></p>
      </span> <span><button id="giveTamagotchiWaterBtn" onclick="giveTamagotchiWater()">Daj wodę</button> </span></p>

@@ -34,7 +34,7 @@ body{
 #screen{
     height: 50%;
     width: 100%;
-    background-color: black;
+    background-color: greenyellow;
     border: 5px solid black ;
     border-radius: 10px;
     position: relative;
@@ -46,6 +46,19 @@ body{
     justify-content: right;
 }
 #screenContent{
-    background-color: greenyellow;
+    background-color: black;
     height: 100%;
+}
+#OnAndOffButton{
+    height: 50px;
+    width: 50px;
+    background-color: white;
+    border-radius: 50px;
+    cursor: pointer;
+}
+#buttonContainer{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-right: 50px;
 }

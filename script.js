@@ -32,12 +32,14 @@ const ChangeScreenStatus = () => {
       screenContent.classList.remove("animate__flash");
     }, 775)
   }else{
+    /*
     isScreenOn = false
     screenContent.classList.add("animate__fadeOut");
         setTimeout(() => {
       screenContent.style.backgroundColor = "black";
       screenContent.classList.remove("animate__fadeOut");
     }, 350)
+    */
   }
 }
 const hideNaming = () => {

@@ -1,30 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <link rel="stylesheet" href="style.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <style>
-    canvas{
-        display: none;
-        margin: 0 auto;
-        background: #111;
-      }
-      </style>
-    <h1>Tamagotchi</h1>
-    <label for="name" id="labelForName">Nazwij Tamagotchi</label>
-    <input id="name" type="text" placeholder="Nazwij Tamagotchi">
-    <button id="saveNameButton" onclick="saveName()">Zapisz imię</button>
-    <p id="displayName"></p>
-    <img id="tamagotchiDisplay" alt="kot haha" src="Obrazy/idk.png">
-    <p>Głód: <span id="hungerDisplay"></span>   <span><button id="FeedTamagotchiBtn" onclick="feedTamagotchi()">Nakarm</button></span></p>
-    <p>Pragnienie: <span id="thirstDisplay"></span> <span><button id="giveTamagotchiWaterBtn" onclick="giveTamagotchiWater()">Daj wodę</button> </span></p>
-    <p>Szczęście: <span id="funDisplay"> </span><span> <button id="play" >Pobaw się z </button> </span></p>
-    <canvas id="pong" width="800" height="500"></canvas>
-    <script  src="script.js"></script>
-    <script src="pong.js"></script>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="style.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+		/>
+	</head>
+	<body>
+		<!-- Console container -->
+		<div id="theWholeThing">
+			<div id="NamingThing">
+				<label for="name" id="labelForName">Nazwij Tamagotchi</label>
+				<input id="name" type="text" placeholder="Nazwij Tamagotchi" />
+				<button id="saveNameButton" onclick="saveName()">
+					Zapisz imię
+				</button>
+			</div>
+			<!-- Screen -->
+			<div id="screen">
+				<div id="screenContent" class="animate__animated">
+					<div id="overlay" class="animate__animated">
+						<p id="displayName"></p>
+						<img
+							id="tamagotchiDisplay"
+							alt="kot haha"
+							src="Obrazy/idk.png"
+						/>
+						<canvas id="pong" width="500" height="650"></canvas>
+						<div id="TamagotchisVariables">
+							<p>Głód: <span id="hungerDisplay"></span></p>
+							<p>Szczęście: <span id="funDisplay"></span></p>
+							<p>Pragnienie: <span id="thirstDisplay"></span></p>
+						</div>
+					</div>
+				</div>
+				<div id="buttonContainer">
+					<div id="OnAndOffButton">
+						<img
+							src="Obrazy/power-off-solid-full.svg"
+							onclick="ChangeScreenStatus()"
+						/>
+					</div>
+				</div>
+				<!-- D-PAD -->
+				<div id="dPadContainer">
+					<div class="hiddenDiv">.</div>
+					<div class="dPad" id="dPadUp"></div>
+					<div></div>
+					<div class="dPad" id="dPadLeft"></div>
+					<div class="dPad" id="dPadCenter">
+						<img
+							src="Obrazy/White_Circle.svg.png"
+							width="32.67px"
+						/>
+					</div>
+					<div class="dPad" id="dPadRight"></div>
+					<div></div>
+					<div class="dPad" id="dPadDown"></div>
+					<div></div>
+				</div>
+			</div>
+			<!-- Action buttons -->
+			<div id="controler">
+				<button
+					class="actionButtons"
+					id="FeedTamagotchiBtn"
+					onclick="feedTamagotchi()"
+				>
+					Nakarm
+				</button>
+				<button
+					class="actionButtons"
+					id="giveTamagotchiWaterBtn"
+					onclick="giveTamagotchiWater()"
+				>
+					Daj wodę
+				</button>
+				<button class="actionButtons" id="play">Pobaw się</button>
+			</div>
+		</div>
+		<script src="script.js"></script>
+	</body>
 </html>
